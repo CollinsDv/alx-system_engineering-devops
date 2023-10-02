@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -file d -maxdepth 1 | wc -l
+find . -file d -mindepth 1 | wc -l
