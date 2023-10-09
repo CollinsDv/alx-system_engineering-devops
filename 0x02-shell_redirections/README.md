@@ -5,3 +5,5 @@
 4: `tail <filename>` - used to print the last 10 lines in a file  
 5: `head` - used to display the 1st 10 lines  
 6: `head -n 3 <filename> | tail 1 or tail -n +3 <filename> | head -n 1` used to print the 3rd line in a file  
+7: `escaping special characters` - using backslash and "" to maintain literals "'\"Best School\"\\'"
+8: `writing into files with '>'` - ls -la filename > new_filename  
