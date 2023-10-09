@@ -12,4 +12,6 @@
 11: `find, maxdepth and wc` - used to count all directories and subdirectories in the current directory  
 12: `ls -lt | head` - will state the directory in reverse time order modification and print the first 10  
 13: `sort | uniq -u` - it will sort the words and find instances that were not repeated
-14: 
+14: `grep 'tex' filename` - used to display lines of interest within a certain expression  
+15: `grep -c` -  counts the number of lines matching the pattern
+16: `
