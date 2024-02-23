@@ -3,7 +3,7 @@
 
 file="school"
 
-if [ -e "$file" ] && [ -d "$file" ];
+if [ -e "$file" ] || [ -d "$file" ];
 then
 	echo "school file exists"
 
@@ -12,7 +12,7 @@ then
 	then
 		echo "school file is not empty"
 	else
-		echo "file is empty"
+		echo "school file is empty"
 	fi
 
 	if [ -f "$file" ];
