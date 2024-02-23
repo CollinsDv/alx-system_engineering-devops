@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# displays infinity and beyond indefinitel with 2 second delayy
+
+for (( ; ; ))
+do
+	echo "infinity and beyond"
+	trap "echo I am invincible!!!" SIGTERM
+	sleep 2
+done
