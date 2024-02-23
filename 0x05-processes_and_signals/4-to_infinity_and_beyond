@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# displays infinity and beyond indefinitely
+# displays infinity and beyond indefinitel with 2 second delayy
 
-for (( ; ; ))
+while true
 do
 	echo "infinity and beyond"
 	sleep 2
