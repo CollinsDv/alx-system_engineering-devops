@@ -3,3 +3,5 @@ contains shell scripts commands
 `0x04-loops_conditions_and_parsing` - looping conditions using bash commannds and scripts  
 `0x05-processes_and_signals`
 `0x06-regular expression`
+`0x07-networking_basics`
+
