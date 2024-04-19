@@ -4,4 +4,5 @@ contains shell scripts commands
 `0x05-processes_and_signals`
 `0x06-regular expression`
 `0x07-networking_basics`
-
+`0x09-web_infrastructure_design`
+`0x0A-configuration_management`
