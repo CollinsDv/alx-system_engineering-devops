@@ -5,7 +5,7 @@ exec { 'apt-get update':
 }
 
 package { 'flask':
-    ensure  => '2.1.0',
-    require => Exec['apt-get update'],
+    ensure   => '2.1.0',
+    require  => Exec['apt-get update'],
     provider => 'pip3'
 }
