@@ -6,3 +6,5 @@ contains shell scripts commands
 `0x07-networking_basics`
 `0x09-web_infrastructure_design`
 `0x0A-configuration_management`
+`0x0B-ssh`
+
