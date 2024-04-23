@@ -10,7 +10,15 @@ apt-get install -y nginx
 # sed -i 's/80 default_server;/80;/g' /etc/nginx/sites-available/default
 
 # Create a default HTML page
-echo "Hello World" > /var/www/html/index.html
+echo "<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World!</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+</body>
+</html>" > /var/www/html/index.html
 
 # Restart Nginx using alternative method (sending HUP signal)
 # kill -HUP "$(pgrep nginx)"
