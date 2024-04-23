@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# 	installing nginx to listen at port 80
+# 	query nginx with GET to return page containing hello world
+
+# Install Nginx
+apt-get update
+apt-get install -y nginx
+
+# Configure Nginx to listen on port 80
+sed -i 's/80 default_server;/80;/g' /etc/nginx/sites-available/default
+
+# Create a default HTML page
+echo "<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World!</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+	</body>
+	</html>" > /var/www/html/index.html
+
+# Restart Nginx using alternative method (sending HUP signal)
+kill -HUP "$(pgrep nginx)"
