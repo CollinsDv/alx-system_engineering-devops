@@ -7,7 +7,7 @@ apt-get update
 apt-get install -y nginx
 
 # Configure Nginx to listen on port 80
-sed -i 's/80 default_server;/80;/g' /etc/nginx/sites-available/default
+# sed -i 's/80 default_server;/80;/g' /etc/nginx/sites-available/default
 
 # Create a default HTML page
 echo "<!DOCTYPE html>
@@ -21,4 +21,5 @@ echo "<!DOCTYPE html>
 	</html>" > /var/www/html/index.html
 
 # Restart Nginx using alternative method (sending HUP signal)
-kill -HUP "$(pgrep nginx)"
+# kill -HUP "$(pgrep nginx)"
+sudo /etc/init.d/nginx restart
