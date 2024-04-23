@@ -3,21 +3,15 @@
 # 	used for redirection by altering redirection file
 
 # Install Nginx
-apt-get update
-apt-get install -y nginx
+sudo apt-get update
+sudo apt-get install -y nginx
+# adjust firewall to allow http traffic
+sudo ufw allow 'Nginx HTTP'
+# start service
+sudo service nginx start
+# Configuration for redirection
+string=$'\tserver_name _;\n\tlocation / {\n\t\trewrite https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n\t}'
+sed -i "s#server_name _;#$string#" /etc/nginx/sites-available/default
 
-echo '
-server {
-    listen 80;
-    server_name _;
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
-}
-' > /etc/nginx/sites-available/redirect_me
-
-# Enable the configuration snippet by creating a symbolic link
-ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
-
-# Restart Nginx using alternative method (sending HUP signal)
-sudo /etc/init.d/nginx restart
+# Reload Nginx service
+sudo service nginx reload
