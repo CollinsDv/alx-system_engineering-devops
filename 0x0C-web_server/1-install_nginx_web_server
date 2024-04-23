@@ -3,23 +3,14 @@
 # 	query nginx with GET to return page containing hello world
 
 # Install Nginx
-apt-get update
-apt-get install -y nginx
-
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
 # Configure Nginx to listen on port 80
 # sed -i 's/80 default_server;/80;/g' /etc/nginx/sites-available/default
 
 # Create a default HTML page
-echo "<!DOCTYPE html>
-<html>
-<head>
-    <title>Hello World!</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-</body>
-</html>" > /var/www/html/index.html
+echo "Hello World" | sudo tee /var/www/html/index.html
 
-# Restart Nginx using alternative method (sending HUP signal)
-# kill -HUP "$(pgrep nginx)"
+# Restart Nginx using alternative method
 sudo /etc/init.d/nginx restart
