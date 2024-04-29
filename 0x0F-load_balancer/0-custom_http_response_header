@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02)
+# 	- The name of the custom HTTP header must be X-Served-By
+# 	- The value of the custom HTTP header must be the hostname of the server Nginx is running on
+# Write 0-custom_http_response_header so that it configures a brand new Ubuntu machine to the requirements asked in this task
+
+# install nginx
+sudo apt-get update
+sudo apt install nginx -y
+# adjust firewall to allow http traffic
+sudo ufw allow 'Nginx HTTP'
+# start service
+sudo service nginx start
+sudo rm /etc/nginx/sites-enabled/default;
+printf "server {
+    listen 80;
+    location / {
+        return 200 \"%s\\n\";
+        add_header ETag \$upstream_http_etag;
+        add_header Accept-Ranges \$upstream_http_accept_ranges;
+        add_header X-Served-By \$hostname;
+    }
+    location = /redirect_me {
+        return 301 http://yourdomain.com/new_page;
+    }
+    error_page 404 /custom_404.html;
+    location = /custom_404.html {
+        root /usr/share/nginx/html;
+        internal;
+    }
+}\n" "Hello World!" | sudo tee /etc/nginx/sites-available/hello_world;
+pirntf "Ceci n'est pas une page\n" | sudo tee /usr/share/nginx/html/custom_404.html;
+if [ -L /etc/nginx/sites-enabled/hello_world ]; then
+    sudo rm /etc/nginx/sites-enabled/hello_world;
+fi
+sudo ln -s /etc/nginx/sites-available/hello_world /etc/nginx/sites-enabled/;
+sudo service nginx restart;
+sudo nginx -t; 
