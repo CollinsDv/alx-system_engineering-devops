@@ -1,0 +1,2 @@
+# restarting the server
+service nginx restart
