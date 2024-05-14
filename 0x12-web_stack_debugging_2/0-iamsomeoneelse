@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# prints user of a system, otherwise the root
+
+func () {
+        if [ -z "$1" ]
+        then
+                exec whoami
+        else
+                exec echo "$1"
+        fi
+}
+
+# invoke func
+func "$1"
