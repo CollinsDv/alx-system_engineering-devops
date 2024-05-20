@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""module 0-gather_data_from_an_api"""
 # uses 'https://jsonplaceholder.typicode.com/' to search
 # for a given employee ID, returns their TODO information
 #   You must use urllib or requests module
