@@ -18,6 +18,7 @@ import sys
 
 
 def fetch_todo_list(employee_id):
+    """fetch url that uses REST API"""
     todos_url = 'https://jsonplaceholder.typicode.com/todos'
     users_url = 'https://jsonplaceholder.typicode.com/users'
 
